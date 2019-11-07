@@ -21,3 +21,22 @@ body{
   color:maroon;
 }
 
+#main-grid{
+  grid-template-areas:
+  "nav nav nav nav logo"
+  ". content content content side"
+  ". wide . side"
+}
+
+.nav{
+  grid-area:"nav";
+}
+.main{
+  grid-area: "content";
+}
+.side{
+  grid-area: "side";
+}
+.wide{
+  grid-area: "wide";
+}
