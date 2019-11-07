@@ -1,0 +1,23 @@
+body{
+  margin:0; 
+  background-color: #006b2d;
+}
+
+#nav{
+  padding:50px; 
+  list-style: none;
+  align-content:center;
+  justify-content: baseline;
+  font-family:'Comic Sans'
+}
+#nav li{
+  display:inline-block;
+}
+#nav li a{
+  color:red;
+}
+
+#nav li a:hover{
+  color:maroon;
+}
+
