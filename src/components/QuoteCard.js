@@ -26,7 +26,7 @@ class QuoteCard extends Component {
         <Typography variant="h5">
           {this.props.title.titleCase()}
         </Typography>
-        <Typography variant="subtitle1">{this.props.desc}</Typography>
+        <Typography variant="subtitle1">{this.props.context}</Typography>
         <Typography variant="body1">"{this.props.quote}"</Typography>
         <Typography variant="caption">{this.props.date}</Typography>
       </Paper>
