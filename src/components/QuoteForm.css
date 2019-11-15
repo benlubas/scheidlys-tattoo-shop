@@ -1,0 +1,14 @@
+.form-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.input-group {
+  padding: 10px;
+  flex-grow: 1;
+}
+.input-group label {
+  align-self: flex-end;
+  padding-right: 10px;
+}

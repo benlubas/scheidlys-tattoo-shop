@@ -20,3 +20,41 @@
 .App-link {
   color: #09d3ac;
 }
+
+.main-grid{
+  display:grid; 
+  grid-template:
+    [row1-start] ".      title  title  .     " 100px [row1-end]
+    [row2-start] ".      quote  quote  .     " auto  [row2-end]
+    [row3-start] ".      .      addBtn .     " 50px  [row3-end]
+    [row4-start] "footer footer footer footer" 20px  [row4-end]
+    /             10%    auto   10%   25%;
+}
+.quote{
+  grid-area: quote;
+}
+.page-title{
+  grid-area: title;
+}
+.footer{
+  grid-area: footer;
+}
+.add-btn{
+  grid-area: addBtn;
+  cursor: pointer; 
+}
+.nav{
+  grid-area: nav;
+}
+.add-btn div{
+  display:flex; 
+  justify-content: center;
+  align-items: center;
+  width: 120%;
+  height: 100%;
+  visibility: visible;
+  margin-top:10px
+}
+.MuiButton-root{
+  visibility: hidden;
+}

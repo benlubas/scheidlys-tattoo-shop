@@ -1,37 +1,58 @@
-import React, { Component } from 'react';
-import { Typography, Paper } from '@material-ui/core/';
+import React, { useState } from 'react';
+import { Typography, Paper, Divider } from '@material-ui/core/';
 
-String.prototype.titleCase = function(){
-  return this.split(" ").map(value => value.charAt(0).toUpperCase() + value.substr(1)).join(" "); 
-}
+const QuoteCard = props => {
+  const [likes, setLikes] = useState(0);
+  const [context, setContext] = useState(false);
+  const [hov, setHov] = useState(false);
+  const styles = {
+    padding: '20px',
+    margin: '5px',
+    cursor: 'default'
+  };
 
-class QuoteCard extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      hovered: false, 
-      likes: 0, 
-      showContext: false, 
-    } 
-    this.styles = {
-      padding: '20px', 
-      
-    }
-  }
-  
-  render() {
-    return (
-      <Paper style={this.styles} square={true} elevation={3}>
-        <Typography variant="h5">
-          {this.props.title.titleCase()}
-        </Typography>
-        <Typography variant="subtitle1">{this.props.context}</Typography>
-        <Typography variant="body1">"{this.props.quote}"</Typography>
-        <Typography variant="caption">{this.props.date}</Typography>
-      </Paper>
+  const ctx =
+    props.context === '' ? (
+      ''
+    ) : (
+      <span
+        onClick={() => {
+          setContext(!context);
+        }}
+        style={{ float: 'right', cursor: 'pointer' }}
+      >
+        CONTEXT
+      </span>
     );
-  }
-}
+  return (
+    <Paper
+      style={styles}
+      square={true}
+      elevation={hov ? 5 : 2}
+      onMouseEnter={() => {
+        setHov(true);
+      }}
+      onMouseLeave={() => {
+        setHov(false);
+      }}
+    >
+      <Typography variant="h5">{props.title}</Typography>
+      <Divider />
+      <Typography
+        style={context ? { display: 'block' } : { display: 'none' }}
+        variant="body2"
+      >
+        {props.context}
+      </Typography>
+      <Typography style={{ marginTop: '5px' }} variant="body1">
+        "{props.quote}"
+      </Typography>
+      <Typography variant="caption">
+        {props.date}
+        {ctx}
+      </Typography>
+    </Paper>
+  );
+};
 
 export default QuoteCard;
