@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Paper, Typography, Icon } from '@material-ui/core';
 
-const QuoteAddBtn = props => {
+const QuoteAddBtn = () => {
   const [hov, setHov] = useState(false);
   return (
     <Paper

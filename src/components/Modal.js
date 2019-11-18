@@ -6,7 +6,7 @@ import { Paper, Button } from '@material-ui/core';
 const modalRoot = document.getElementById('modal-root');
 
 export const ModalSet = props => {
-  const [shown, setShown] = useState(true);
+  const [shown, setShown] = useState(false);
   return (
     <>
       <Button

@@ -21,40 +21,43 @@
   color: #09d3ac;
 }
 
-.main-grid{
-  display:grid; 
+.main-grid {
+  display: grid;
   grid-template:
-    [row1-start] ".      title  title  .     " 100px [row1-end]
-    [row2-start] ".      quote  quote  .     " auto  [row2-end]
-    [row3-start] ".      .      addBtn .     " 50px  [row3-end]
-    [row4-start] "footer footer footer footer" 20px  [row4-end]
-    /             10%    auto   10%   25%;
+    [row1-start] '.      title  title  .     ' 100px [row1-end]
+    [row2-start] '.      quote  quote  aside ' auto [row2-end]
+    [row3-start] '.      .      addBtn aside ' 50px [row3-end]
+    [row4-start] 'footer footer footer footer' 20px [row4-end]
+    / 10% auto 10% 25%;
 }
-.quote{
+.quote {
   grid-area: quote;
 }
-.page-title{
+.page-title {
   grid-area: title;
 }
-.footer{
+.footer {
   grid-area: footer;
 }
-.add-btn{
+.add-btn {
   grid-area: addBtn;
-  cursor: pointer; 
+  cursor: pointer;
 }
-.nav{
+.nav {
   grid-area: nav;
 }
-.add-btn div{
-  display:flex; 
+.add-btn div {
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 120%;
   height: 100%;
   visibility: visible;
-  margin-top:10px
+  margin-top: 10px;
 }
-.MuiButton-root{
+.MuiButton-root {
   visibility: hidden;
+}
+body {
+  margin: 0;
 }
