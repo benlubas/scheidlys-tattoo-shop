@@ -6,14 +6,13 @@ import QuoteAddBtn from './components/QuoteAddBtn.js';
 import QuoteForm from './components/QuoteForm.js';
 import CustomTheme from './components/CustomTheme.js';
 import TheNav from './components/TheNav.js';
-import MovingInputPhoneNumber from './components/BadUI/FloatingInput.js';
 import ShiftingNumsPhoneNumber from './components/BadUI/ShiftingNumsPhoneNumber.js';
 
 import quotes from './quote.json';
 import { titlecase } from './pipes.js';
 
 function App() {
-  const [page, setPage] = useState('badUI');
+  const [page, setPage] = useState('home');
   const quoteCards = quotes.map((value, index) => (
     <QuoteCard
       key={index}
@@ -44,10 +43,7 @@ function App() {
           />
         </div>
       ) : (
-        <>
-          <MovingInputPhoneNumber className="title" />
-          <ShiftingNumsPhoneNumber className="quote" />
-        </>
+        <ShiftingNumsPhoneNumber className="quote" />
       )}
     </CustomTheme>
   );

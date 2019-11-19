@@ -52,39 +52,4 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
-  <script>
-    const input = "1, 5";
-    const [x, y] = input.split(", ");
-    const rect = "2, 4, 30, 20".split(", ");
-    const Point = (x, y) => {
-      this.x = x;
-      this.y = y;
-
-      this.dist = pt => {
-        return Math.sqrt(
-          Math.pow(this.x - pt.x, 2) * Math.pow(this.y - pt.y, 2)
-        );
-      };
-    };
-
-    console.log(getMin(10, 10, [5, 6, 4, 3]));
-
-    const getMin = (x, y, [rx, ry, w, h]) => {
-      const p = new Point(x, y);
-      const r = [
-        new Point(rx, ry),
-        new Point(rx + w, ry),
-        new Point(rx + w, ry + h),
-        new Point(rw, ry + h)
-      ];
-
-      let things = [y - ry, ry + h - y, x - rx, rx + w - x];
-      things = things.map(value => Math.abs(value));
-      for (let i = 0; i < r.length; r++) {
-        things.push(r[i].dist(p));
-      }
-
-      return Math.min(...things);
-    };
-  </script>
 </html>

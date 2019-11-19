@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from '@material-ui/core';
+import './BadUi.css';
 
 const ran = (min, max) => {
   return Math.floor(min + Math.random() * (max + 1));
@@ -66,9 +66,16 @@ const ShiftingNumsPhoneNumber = () => {
     midThree: ['X', 'X', 'X'],
     lastFour: ['X', 'X', 'X', 'X']
   });
-  const styles = {
+  const mainStyles = {
+    margin: '10px',
+    display: 'grid',
+    justifyContent: 'center',
+    flexDirection: 'column'
+  };
+  const inputStyles = {
     margin: '5px',
     display: 'inline',
+    textAlign: 'center',
     borderBottom: '1px solid grey',
     paddingBottom: '3px',
     color: 'grey'
@@ -111,18 +118,34 @@ const ShiftingNumsPhoneNumber = () => {
   );
 
   return (
-    <>
-      <div style={styles}>
+    <div style={mainStyles}>
+      <h3>Enter Your Phone Number</h3>
+      <div style={inputStyles}>
         ({areaCodeJSX})-{midThreeJSX}-{lastFourJSX}
       </div>
-      <div className="r1">{f1}</div>
-      <div className="r2">{f2}</div>
-      <div className="r3">{f3}</div>
-      <div className="r4" style={{ paddingLeft: '30px' }}>
-        {fb}
+      <div
+        style={{
+          display: 'flex',
+          justifyItems: 'center',
+          flexDirection: 'column'
+        }}
+      >
+        <div className="numrow">{f1}</div>
+        <div className="numrow">{f2}</div>
+        <div className="numrow">{f3}</div>
+        <div className="numrow">{fb}</div>
       </div>
       {valid ? (
         <h3
+          onClick={() => {
+            setFalseInput({
+              areaCode: ['X', 'X', 'X'],
+              midThree: ['X', 'X', 'X'],
+              lastFour: ['X', 'X', 'X', 'X']
+            });
+            setIndex(0);
+            setValid(false);
+          }}
           style={{
             color: 'green',
             margin: '10px',
@@ -137,7 +160,7 @@ const ShiftingNumsPhoneNumber = () => {
           SUMBIT!
         </h3>
       ) : null}
-    </>
+    </div>
   );
 };
 
