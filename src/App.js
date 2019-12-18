@@ -10,9 +10,10 @@ import ShiftingNumsPhoneNumber from './components/BadUI/ShiftingNumsPhoneNumber.
 
 import quotes from './quote.json';
 import { titlecase } from './pipes.js';
+import MinesweeperGrid from './components/minesweeper/MinesweeperGrid';
 
 function App() {
-  const [page, setPage] = useState('home');
+  const [page, setPage] = useState('minesweeper');
   const quoteCards = quotes.map((value, index) => (
     <QuoteCard
       key={index}
@@ -28,7 +29,11 @@ function App() {
         title={
           page == 'home'
             ? "scheidly's handwriting for the purpose of a tattoo.com"
-            : 'Better Bad UI'
+            : page == 'badUI'
+            ? 'Better Bad UI'
+            : page == 'minesweeper'
+            ? 'Minesweeper'
+            : 'page not found'
         }
       />
       {page == 'home' ? (
@@ -42,8 +47,10 @@ function App() {
             body={<QuoteForm />}
           />
         </div>
-      ) : (
+      ) : page == 'badUI' ? (
         <ShiftingNumsPhoneNumber className="quote" />
+      ) : (
+        <MinesweeperGrid size={15} />
       )}
     </CustomTheme>
   );

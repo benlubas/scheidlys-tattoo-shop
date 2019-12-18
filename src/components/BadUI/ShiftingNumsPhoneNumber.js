@@ -7,9 +7,9 @@ const ran = (min, max) => {
 
 const validate = ({ areaCode, midThree, lastFour }) => {
   if (
-    areaCode.indexOf('X') == -1 &&
-    midThree.indexOf('X') == -1 &&
-    lastFour.indexOf('X') == -1
+    areaCode.indexOf('X') === -1 &&
+    midThree.indexOf('X') === -1 &&
+    lastFour.indexOf('X') === -1
   ) {
     return true;
   }
